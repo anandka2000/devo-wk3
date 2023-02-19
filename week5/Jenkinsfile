@@ -45,8 +45,12 @@ podTemplate(containers: [
                     ])                       
                 }
                 stage("checkstyle test") {
+                    sh '''
+                    cd Chapter08/sample1
+                    chmod +x gradlew
+                    ./gradlew checkstyleMain
+                    '''
 
-                    sh "./gradlew checkstyleMain"
 
                     // from the HTML publisher plugin
                     // https://www.jenkins.io/doc/pipeline/steps/htmlpublisher/
