@@ -43,7 +43,7 @@ podTemplate(containers: [
                         reportFiles: 'index.html',
                         reportName: "JaCoCo Report"
                     ])                       
-                
+                }
                 stage("checkstyle test") {
                     steps {
                        sh "./gradlew checkstyleMain"
@@ -56,8 +56,8 @@ podTemplate(containers: [
                         reportFiles: 'index.html',
                         reportName: "Checkstyle report"
                     ])                       
-                
-                }
+		
+		}
            }
         }
     }
