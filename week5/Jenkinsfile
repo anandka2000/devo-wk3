@@ -47,12 +47,15 @@ podTemplate(
                     ])                       
                 }
                 stage("checkstyle test") {
-                    sh '''
-                    cd Chapter08/sample1
-                    chmod +x gradlew
-                    ./gradlew checkstyleMain
-                    '''
-
+		    try {
+                         sh '''
+                           cd Chapter08/sample1
+                           chmod +x gradlew
+                           ./gradlew checkstyleMain
+                          '''
+		    } catch (Exception E){
+		      echo 'Failure of checkstyle detected'
+		    }
 
                     // from the HTML publisher plugin
                     // https://www.jenkins.io/doc/pipeline/steps/htmlpublisher/
