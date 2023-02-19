@@ -52,6 +52,8 @@ podTemplate(
                            cd Chapter08/sample1
                            chmod +x gradlew
                            ./gradlew checkstyleMain
+			   ./gradlew jacocoTestReport
+
                           '''
 		    } catch (Exception E){
 		      echo 'Failure of checkstyle detected'
