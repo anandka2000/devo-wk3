@@ -61,7 +61,7 @@ podTemplate(
                       // https://www.jenkins.io/doc/pipeline/steps/htmlpublisher/
                       publishHTML (target: [
                           reportDir: 'Chapter08/sample1/build/reports/checkstyle',
-                          reportFiles: 'index.html',
+                          reportFiles: 'main.html',
                           reportName: "Checkstyle report"
                       ])
 		      error ('Build failed in checkstyle')
