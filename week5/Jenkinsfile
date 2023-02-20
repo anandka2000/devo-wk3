@@ -63,7 +63,8 @@ podTemplate(
                           reportDir: 'Chapter08/sample1/build/reports/checkstyle',
                           reportFiles: 'index.html',
                           reportName: "Checkstyle report"
-                      ])                       
+                      ])
+		      error ('Build failed in checkstyle')
 		   } //Execption
 		}
            }
