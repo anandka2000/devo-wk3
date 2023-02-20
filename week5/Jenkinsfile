@@ -47,7 +47,7 @@ podTemplate(
                     ])                       
                 }
                 stage("checkstyle test") {
-		
+		   try {
                          sh '''
                            cd Chapter08/sample1
                            chmod +x gradlew
@@ -55,16 +55,16 @@ podTemplate(
 			   ./gradlew jacocoTestReport
 
                           '''
-		
+		   } catch (Exception E) {		
 
-                    // from the HTML publisher plugin
-                    // https://www.jenkins.io/doc/pipeline/steps/htmlpublisher/
-                    publishHTML (target: [
-                        reportDir: 'Chapter08/sample1/build/reports/checkstyle',
-                        reportFiles: 'index.html',
-                        reportName: "Checkstyle report"
-                    ])                       
-		
+                      // from the HTML publisher plugin
+                      // https://www.jenkins.io/doc/pipeline/steps/htmlpublisher/
+                      publishHTML (target: [
+                          reportDir: 'Chapter08/sample1/build/reports/checkstyle',
+                          reportFiles: 'index.html',
+                          reportName: "Checkstyle report"
+                      ])                       
+		   } //Execption
 		}
            }
         }
